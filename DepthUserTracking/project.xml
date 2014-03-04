@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+
+	<meta title="Depth User Tracking" package="com.kinect.depthUserTracking" version="1.0.0" company="kinect" />
+	<app main="Main" path="Export" file="DepthUserTracking" />
+
+	<window background="#000000" fps="30" />
+	<window width="640" height="480" />
+	<window orientation="landscape" vsync="false" antialiasing="0" if="cpp" />
+
+	<source path="Source" />
+
+	<haxelib name="openfl" />
+	<include name="OpenFLKinect" path="../OpenFLKinect"></include>
+
+	<assets path="Assets" rename="assets" exclude="nme.svg" />
+	<icon path="Assets/nme.svg" />
+
+	<set name="SHOW_CONSOLE" value="1"/>
+	<haxedef name="SHOW_CONSOLE"/>
+</project>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+
+	<meta title="Color" package="com.kinect.color" version="1.0.0" company="kinect" />
+	<app main="Main" path="Export" file="Color" />
+
+	<window background="#000000" fps="30" />
+	<window width="640" height="480" unless="mobile" />
+	<window orientation="landscape" vsync="false" antialiasing="0" if="cpp" />
+
+	<source path="Source" />
+
+	<haxelib name="openfl" />
+	<include name="OpenFLKinect" path="../OpenFLKinect"></include>
+	<source path="../OpenFLKinect" />
+
+	<assets path="Assets" rename="assets" exclude="nme.svg" />
+	<icon path="Assets/nme.svg" />
+
+	<set name="SHOW_CONSOLE" value="1"/>
+	<haxedef name="SHOW_CONSOLE"/>
+</project>
