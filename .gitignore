@@ -3,3 +3,4 @@
 *.exe
 *.ndll
 OpenFLKinect/project/obj/
+Depth/Export
