@@ -6,7 +6,6 @@ import flash.events.KeyboardEvent;
 import flash.events.MouseEvent;
 import flash.events.TouchEvent;
 import flash.geom.Rectangle;
-import immersive.Utils;
 import flash.geom.ColorTransform;
 /**
  * ...

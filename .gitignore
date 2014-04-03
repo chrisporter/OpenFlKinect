@@ -4,3 +4,9 @@
 *.ndll
 OpenFLKinect/project/obj/
 Depth/Export
+Color/Export
+DepthUserTracking/Export
+Interaction/Export
+IR/Export
+KinectGraphics/Export
+Skeleton/Export

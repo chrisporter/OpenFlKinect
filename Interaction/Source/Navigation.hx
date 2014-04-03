@@ -22,7 +22,7 @@ class Navigation extends KinectRegion
 	
 	public function new(width, height, kinect) 
 	{
-		super(width, height, kinect);
+		super(width, height, kinect, HandSize.Small );
 		s = new ScrollView(width);
 		addChild(s);
 		s.addEventListener(TouchEvent.TOUCH_OVER, handOver);
