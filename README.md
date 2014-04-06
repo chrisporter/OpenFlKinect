@@ -3,17 +3,42 @@ OpenFlKinect
 
 Openfl / Haxe native extension for Microsoft Kinect for Windows SDK
 
-To build ndll library:
+**To build ndll library:**
 
 haxelib run hxcpp Build.xml
 
-To compile samples:
+**To compile samples:**
 
 [haxelib run] openfl build project.xml windows
 
 Copy KinectInteraction180_32.dll from %KINECT_TOOLKIT_DIR%/bin into same directory as .exe
 
-Dependencies
+## Usage
+
+```Haxe
+
+// Set options
+d = new DeviceOptions();
+d.depthEnabled = true;
+d.depthResolution = ImageResolution.NUI_IMAGE_RESOLUTION_640x480;
+
+// Create a Kinect references
+k = new Kinect(d);
+k.start();
+
+// Add the image stream display list
+addChild(k.bmDepth);
+
+// call update each frame
+addEventListener(Event.ENTER_FRAME, function(e)
+{
+  k.update();
+});
+
+```
+
+
+## Dependencies
 
 * Kinect for Windows SDK http://www.microsoft.com/en-us/kinectforwindowsdev/Downloads.aspx
 * Haxe and OpenFL http://www.openfl.org/documentation/setup/install-haxe/
@@ -21,6 +46,8 @@ Dependencies
 ## Depth Stream
 
 ![](https://lh4.googleusercontent.com/-_HtY04KcUTw/Uz2W7jbH6qI/AAAAAAAADZ4/dW_7oVNZ5y4/w303-h240-no/depth.png)
+
+
 
 ## Colour Stream
 
