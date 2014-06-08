@@ -40,8 +40,9 @@ addEventListener(Event.ENTER_FRAME, function(e)
 
 ## Dependencies
 
-* Kinect for Windows SDK http://www.microsoft.com/en-us/kinectforwindowsdev/Downloads.aspx
+* Kinect for Windows SDK & Kinect for Windows Developer Toolkit http://www.microsoft.com/en-us/kinectforwindowsdev/Downloads.aspx
 * Haxe and OpenFL http://www.openfl.org/documentation/setup/install-haxe/
+* Visual Studio 2012 / Visual Studio 2012 Express (2010 Will not compile) http://www.microsoft.com/en-us/download/details.aspx?id=34673
 
 ## Depth Stream
 
