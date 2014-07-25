@@ -7,6 +7,9 @@ import flash.events.MouseEvent;
 import flash.events.TouchEvent;
 import flash.geom.Rectangle;
 import flash.geom.ColorTransform;
+import Lambda;
+
+using String;
 /**
  * ...
  * @author Chris Porter
@@ -61,9 +64,9 @@ class KinectRegion extends Sprite
 		availableColors.push(0xffff00);
 		availableColors.push(0xff00ff);
 		availableColors.push(0xff0000);
-		availableColors.push(0x0000ff);
-		availableColors.push(0x0000ff);
-		availableColors.push(0x0000ff);
+		availableColors.push(0x000033);
+		//availableColors.push(0x0000ff);
+		//availableColors.push(0x0000ff);
 	}
 
 	function getColour(id)
@@ -98,8 +101,8 @@ class KinectRegion extends Sprite
 			
 			var z = 0.0;
 			var pressing = false;
-			this.addEventListener(MouseEvent.MOUSE_MOVE, mouseMove);
-			this.addEventListener(MouseEvent.MOUSE_DOWN, function(e)
+			stage.addEventListener(MouseEvent.MOUSE_MOVE, mouseMove);
+			stage.addEventListener(MouseEvent.MOUSE_DOWN, function(e)
 			{
 				if ( ctrlDown == false )
 				{
@@ -112,7 +115,7 @@ class KinectRegion extends Sprite
 				}
 			});
 			
-			this.addEventListener(MouseEvent.MOUSE_UP, function(e)
+			stage.addEventListener(MouseEvent.MOUSE_UP, function(e)
 			{
 				hands[curHand].gripped = false;
 				pressing = false;
@@ -137,7 +140,7 @@ class KinectRegion extends Sprite
 				}
 			});
 			
-			addEventListener(Event.ENTER_FRAME, function(e)
+			stage.addEventListener(Event.ENTER_FRAME, function(e)
 			{
 				if ( pressing )
 				{
@@ -171,6 +174,8 @@ class KinectRegion extends Sprite
 		
 		handsLayer.visible = true;
 		
+		removeInactiveSkeletons();
+		
 		for ( i in kinect.userInfos )
 		{
 			if ( i.skeletonTrackingID > 0 )
@@ -180,13 +185,13 @@ class KinectRegion extends Sprite
 					updateHand(i.skeletonTrackingID, j);
 				}
 			}
-		}
+		}	
 		
 		var anyMap = new Map<DisplayObject, Bool>();
 		var tEvent = new TouchEvent(TouchEvent.TOUCH_OVER);
 		
 		for ( y in hands )
-		{
+		{		
 			if ( y.visible == false )
 			{
 				continue;
@@ -202,6 +207,7 @@ class KinectRegion extends Sprite
 			{
 				var x = i * -1;
 				var c = controlsLayer.getChildAt(x);
+				anyMap[c] = false;	
 				intersection = y.getRect(this).intersection(c.getRect(this));
 				var area = intersection.width * intersection.height;
 				if ( area > 0.0 && area > areaCovered )
@@ -209,10 +215,10 @@ class KinectRegion extends Sprite
 					areaCovered = area;
 					obj = c;
 				}
-				anyMap[c] = false;	
 				
 				if ( y.dragging && dragging[c] == y )
 				{
+					trace(dragging, c);
 					tEvent = new TouchEvent(TouchEvent.TOUCH_MOVE);
 					setTouchEvent(y, intersection, tEvent);
 					c.dispatchEvent( tEvent );
@@ -337,6 +343,28 @@ class KinectRegion extends Sprite
 	{
 		var colour = getColour(skeltonID);
 		hand.colour = colour;
+	}
+	
+	function removeInactiveSkeletons():Void 
+	{
+		// remove inactive skeletons
+		for ( key in hands.keys() )
+		{
+			if ( key == 'debug___' || key == 'debug___2' )
+			{
+				continue;
+			}
+			
+			var skeletonTrackingID = Std.parseInt(key.substring(0, key.indexOf("-")));
+			var exists = Lambda.exists( kinect.userInfos, function(ui) 
+				{ 
+					return ui.skeletonTrackingID == skeletonTrackingID; 
+				} );
+			if (  exists == false )
+			{
+				hands[key].visible = false;
+			}
+		}
 	}
 	
 }
