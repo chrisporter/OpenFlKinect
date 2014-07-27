@@ -1,4 +1,5 @@
 package ;
+import openfl.errors.Error;
 
 /**
  * ...
@@ -29,7 +30,21 @@ class Skeleton
 		{
 			var b = new Bone();
 			b.parse(d.bones[i]);
-			joints[b.skeletonPositionIndex] = b;
+			
+			if ( b == null || b.skeletonPositionIndex == null )
+			{
+				trace("CRASH");
+				continue;
+			}
+			
+			try 
+			{
+				joints[b.skeletonPositionIndex] = b;
+			}
+			catch(e:Error)
+			{
+				trace(b);
+			}
 		}
 	}
 }

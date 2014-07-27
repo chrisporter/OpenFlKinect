@@ -11,7 +11,7 @@
         <compilerflag value="-Iinclude"/>
         <compilerflag value ="-I${KINECTSDK10_DIR}inc"/>
         <compilerflag value ="-I${KINECTSDK10_DIR}lib/x86"/>
-        <compilerflag value="-I${HAXEPATH}lib/nme/project/include" />
+        <compilerflag value="-I${HAXEPATH}lib/openfl/project/include" />
         <compilerflag value="-I${KINECT_TOOLKIT_DIR}/inc" />
         <!--<compilerflag value="-I{HAXEPATH}lib/hxcpp/3,0,2/include/hx" />-->
         <file name="common/ExternalInterface.cpp"/>
