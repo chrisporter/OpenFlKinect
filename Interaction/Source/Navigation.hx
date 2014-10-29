@@ -7,6 +7,9 @@ import motion.Actuate;
 import openfl.text.TextFormat;
 import openfl.text.TextField;
 import openfl.text.TextFieldAutoSize;
+import openfl.kinect.graphics.NavButton;
+import openfl.kinect.graphics.ScrollView;
+import openfl.kinect.graphics.HandSize;
 /**
  * ...
  * @author Chris Porter
@@ -24,20 +27,20 @@ class Navigation extends KinectRegion
 	{
 		super(width, height, kinect, HandSize.Small );
 		s = new ScrollView(width);
-		addChild(s);
+		addInteractiveChild(s);
 		s.addEventListener(TouchEvent.TOUCH_OVER, handOver);
 		s.addEventListener(TouchEvent.TOUCH_BEGIN, handDown);
 		s.addEventListener(TouchEvent.TOUCH_END, handUp);
 		s.addEventListener(TouchEvent.TOUCH_MOVE, handDrag);
 		s.addEventListener(TouchEvent.TOUCH_TAP, handTap);
 		left = new NavButton();
-		addChild(left);
+		addInteractiveChild(left);
 		left.addEventListener(TouchEvent.TOUCH_OVER, handOver);
 		//left.addEventListener(TouchEvent.TOUCH_BEGIN, handDown);
 		//left.addEventListener(TouchEvent.TOUCH_END, handUp);
 		//left.addEventListener(TouchEvent.TOUCH_MOVE, handDrag);
 		right = new NavButton(false);
-		addChild(right);
+		addInteractiveChild(right);
 		left.y = Main.HEIGHT - left.height;
 		right.x = Main.WIDTH - left.width;
 		left.y = right.y = Main.HEIGHT - left.height;

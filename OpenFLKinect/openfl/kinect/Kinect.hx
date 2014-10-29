@@ -4,6 +4,7 @@ import openfl.display.Bitmap;
 import openfl.display.BitmapData;
 import openfl.geom.Vector3D;
 import openfl.kinect.interactions.UserInfo;
+import openfl.kinect.Skeleton;
 #if cpp
 import cpp.Lib;
 #elseif neko

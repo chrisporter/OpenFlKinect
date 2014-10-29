@@ -12,6 +12,7 @@ import openfl.display.DirectRenderer;
 import openfl.kinect.Kinect;
 import openfl.kinect.DeviceOptions;
 import openfl.kinect.ImageResolution;
+import openfl.kinect.graphics.KinectStatusView;
 #if cpp
 import cpp.Lib;
 #end
@@ -30,8 +31,6 @@ class Main extends Sprite
 	public function new () 
 	{
 		super ();
-		
-	
 		
 		d = new DeviceOptions();
 		d.depthEnabled = true;

@@ -8,6 +8,8 @@ import openfl.events.MouseEvent;
 import openfl.events.TouchEvent;
 import openfl.geom.Rectangle;
 import openfl.geom.ColorTransform;
+import openfl.kinect.graphics.Hand;
+import openfl.kinect.graphics.HandSize;
 import Lambda;
 
 using String;

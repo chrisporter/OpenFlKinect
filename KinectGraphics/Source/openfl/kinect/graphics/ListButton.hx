@@ -24,9 +24,8 @@ class ListButton extends Sprite
 	public function new(num) 
 	{
 		super();
-		init();
-		
 		this.id = num;
+		init();
 		origWidth = width;
 		origHeight = height;
 		startX = x;
@@ -57,6 +56,7 @@ class ListButton extends Sprite
 	
 		text.autoSize = TextFieldAutoSize.LEFT;
 		container.addChild(text);
+		trace(id);
 		text.text = Std.string(id);
 		text.y = 160;
 		text.x = 20;
