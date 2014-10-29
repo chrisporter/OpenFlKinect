@@ -1,4 +1,4 @@
-package ;
+package openfl.kinect.graphics;
 
 /**
  * ...

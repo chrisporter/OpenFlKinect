@@ -1,5 +1,5 @@
-package ;
-import flash.geom.Vector3D;
+package openfl.kinect;
+import openfl.geom.Vector3D;
 
 /**
  * ...

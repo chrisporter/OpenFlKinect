@@ -1,6 +1,6 @@
-package ;
-import flash.geom.Point;
-import SkeletonTransform;
+package openfl.kinect;
+import openfl.geom.Point;
+import openfl.kinect.SkeletonTransform;
 
 #if cpp
 import cpp.Lib;

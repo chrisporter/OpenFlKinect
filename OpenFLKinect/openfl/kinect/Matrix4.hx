@@ -1,4 +1,4 @@
-package;
+package openfl.kinect;
 
 /**
  * ...
@@ -6,7 +6,7 @@ package;
  */
 class Matrix4
 {
-	public var M11:Float;
+    public var M11:Float;
     public var M12:Float;
     public var M13:Float;
     public var M14:Float;
@@ -23,9 +23,9 @@ class Matrix4
     public var M43:Float;
     public var M44:Float;
 
-	public function new() 
-	{
-		
-	}
+    public function new() 
+    {
+            
+    }
 	
 }

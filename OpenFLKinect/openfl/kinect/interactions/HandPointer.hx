@@ -1,8 +1,8 @@
-package interactions;
+package openfl.kinect.interactions;
 
-import flash.events.EventDispatcher;
+import openfl.events.EventDispatcher;
 import haxe.EnumFlags;
-import interactions.events.HandEvent;
+import openfl.kinect.interactions.events.HandEvent;
 /**
  * ...
  * @author Chris Porter

@@ -12,3 +12,5 @@ KinectGraphics/Export
 Skeleton/Export
 Screenshots
 *.md~
+*.hx~
+*.hx~~

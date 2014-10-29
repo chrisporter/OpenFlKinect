@@ -1,12 +1,12 @@
 package ;
-import flash.display.Sprite;
-import flash.events.TouchEvent;
-import interactions.KinectRegion;
-import flash.events.MouseEvent;
+import openfl.display.Sprite;
+import openfl.events.TouchEvent;
+import openfl.kinect.interactions.KinectRegion;
+import openfl.events.MouseEvent;
 import motion.Actuate;
-import flash.text.TextFormat;
-import flash.text.TextField;
-import flash.text.TextFieldAutoSize;
+import openfl.text.TextFormat;
+import openfl.text.TextField;
+import openfl.text.TextFieldAutoSize;
 /**
  * ...
  * @author Chris Porter
@@ -17,7 +17,7 @@ class Navigation extends KinectRegion
 	var left:NavButton;
 	var right:NavButton;
 	var tf:TextFormat;
-	var text:flash.text.TextField;
+	var text:openfl.text.TextField;
 	var s:ScrollView;
 	
 	public function new(width, height, kinect) 

@@ -1,10 +1,11 @@
-package ;
+package openfl.kinect.graphics;
+
 import flash.display.Bitmap;
 import flash.display.BlendMode;
 import flash.display.DisplayObject;
 import flash.display.Shape;
 import flash.display.Sprite;
-import interactions.HandType;
+import openfl.kinect.interactions.HandType;
 import motion.easing.Linear;
 import openfl.Assets;
 import motion.Actuate;

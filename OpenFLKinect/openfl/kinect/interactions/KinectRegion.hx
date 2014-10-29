@@ -1,12 +1,13 @@
-package interactions;
-import flash.display.DisplayObject;
-import flash.display.Sprite;
-import flash.events.Event;
-import flash.events.KeyboardEvent;
-import flash.events.MouseEvent;
-import flash.events.TouchEvent;
-import flash.geom.Rectangle;
-import flash.geom.ColorTransform;
+package openfl.kinect.interactions;
+
+import openfl.display.DisplayObject;
+import openfl.display.Sprite;
+import openfl.events.Event;
+import openfl.events.KeyboardEvent;
+import openfl.events.MouseEvent;
+import openfl.events.TouchEvent;
+import openfl.geom.Rectangle;
+import openfl.geom.ColorTransform;
 import Lambda;
 
 using String;
@@ -218,10 +219,16 @@ class KinectRegion extends Sprite
 				
 				if ( y.dragging && dragging[c] == y )
 				{
-					trace(dragging, c);
 					tEvent = new TouchEvent(TouchEvent.TOUCH_MOVE);
 					setTouchEvent(y, intersection, tEvent);
 					c.dispatchEvent( tEvent );
+					trace(gripEnd);
+				}
+				
+				if ( gripEnd && dragging[c] == y )
+				{
+					c.dispatchEvent( new TouchEvent(TouchEvent.TOUCH_END) );
+					dragging.remove(c);
 				}
 			}
 			
@@ -255,11 +262,6 @@ class KinectRegion extends Sprite
 				setTouchEvent(y, intersection, tEvent);
 				obj.dispatchEvent( tEvent );
 				y.pressed = true;
-			}
-			if ( gripEnd )
-			{
-				obj.dispatchEvent( new TouchEvent(TouchEvent.TOUCH_END) );
-				dragging.remove(obj);
 			}
 		}
 		
@@ -332,6 +334,7 @@ class KinectRegion extends Sprite
 	{
 		tEvent.localX = intersection.x + intersection.width / 2;
 		tEvent.localY = intersection.y + intersection.height / 2;
+		
 		if ( hand != null )
 		{
 			tEvent.stageX = hand.x;
@@ -347,7 +350,6 @@ class KinectRegion extends Sprite
 	
 	function removeInactiveSkeletons():Void 
 	{
-		// remove inactive skeletons
 		for ( key in hands.keys() )
 		{
 			if ( key == 'debug___' || key == 'debug___2' )

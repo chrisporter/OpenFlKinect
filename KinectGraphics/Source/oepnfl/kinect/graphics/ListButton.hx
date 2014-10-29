@@ -1,4 +1,5 @@
-package ;
+package openfl.kinect.graphics;
+
 import flash.display.Sprite;
 import flash.text.TextField;
 import flash.text.TextFormat;

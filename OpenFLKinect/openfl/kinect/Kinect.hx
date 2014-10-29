@@ -1,16 +1,16 @@
-package ;
+package openfl.kinect;
 
-import flash.display.Bitmap;
-import flash.display.BitmapData;
-import flash.geom.Vector3D;
-import interactions.UserInfo;
+import openfl.display.Bitmap;
+import openfl.display.BitmapData;
+import openfl.geom.Vector3D;
+import openfl.kinect.interactions.UserInfo;
 #if cpp
 import cpp.Lib;
 #elseif neko
 import neko.Lib;
 #end
 
-import flash.geom.Point;
+import openfl.geom.Point;
 
 /**
  * ...

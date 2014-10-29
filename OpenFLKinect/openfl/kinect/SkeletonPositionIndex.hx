@@ -1,4 +1,4 @@
-package ;
+package openfl.kinect;
 
 /**
  * ...
@@ -6,7 +6,7 @@ package ;
  */
 enum SkeletonPositionIndex
 {
-	NUI_SKELETON_POSITION_HIP_CENTER;
+    NUI_SKELETON_POSITION_HIP_CENTER;
     NUI_SKELETON_POSITION_SPINE;
     NUI_SKELETON_POSITION_SHOULDER_CENTER;
     NUI_SKELETON_POSITION_HEAD;

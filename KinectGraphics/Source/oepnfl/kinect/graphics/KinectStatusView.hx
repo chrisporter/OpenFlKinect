@@ -1,13 +1,14 @@
-package ;
-import flash.display.Bitmap;
-import flash.display.Sprite;
-import flash.filters.GlowFilter;
-import flash.text.TextField;
-import flash.text.TextFormat;
-import openfl.Assets;
-import flash.text.TextFieldAutoSize;
-import motion.Actuate;
+package openfl.kinect.graphics;
 
+import openfl.display.Bitmap;
+import openfl.display.Sprite;
+import openfl.filters.GlowFilter;
+import openfl.text.TextField;
+import openfl.text.TextFormat;
+import openfl.Assets;
+import openfl.text.TextFieldAutoSize;
+import motion.Actuate;
+import openfl.kinect.KinectStatus;
 /**
  * ...
  * @author Chris Porter

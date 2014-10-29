@@ -1,5 +1,6 @@
-package interactions;
-import interactions.events.HandEvent;
+package openfl.kinect.interactions;
+
+import openfl.kinect.interactions.events.HandEvent;
 
 /**
  * ...

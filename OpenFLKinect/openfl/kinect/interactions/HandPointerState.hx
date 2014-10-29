@@ -1,4 +1,4 @@
-package interactions;
+package openfl.kinect.interactions;
 
 /**
  * ...

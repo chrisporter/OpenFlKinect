@@ -1,13 +1,16 @@
-import flash.display.Bitmap;
-import flash.display.BitmapData;
-import flash.display.Shape;
-import flash.display.Sprite;
-import flash.events.Event;
-import flash.events.KeyboardEvent;
-import flash.events.MouseEvent;
-import flash.geom.Point;
+import openfl.display.Bitmap;
+import openfl.display.BitmapData;
+import openfl.display.Shape;
+import openfl.display.Sprite;
+import openfl.events.Event;
+import openfl.events.KeyboardEvent;
+import openfl.events.MouseEvent;
+import openfl.geom.Point;
 import cpp.Lib;
 import openfl.display.FPS;
+import openfl.kinect.Kinect;
+import openfl.kinect.DeviceOptions;
+import openfl.kinect.ImageResolution;
 
 class Main extends Sprite 
 {

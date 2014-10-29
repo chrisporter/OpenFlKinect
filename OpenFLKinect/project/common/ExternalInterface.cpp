@@ -52,7 +52,7 @@ static value openflkinect_init(value in)
                   val_field(in, val_id("irResolution"))));
   opts.irSize = opts.Vec2fromHaxePoint(in, "irSize");
 
-  opts.nearModeEnabled = val_bool(val_field(in, val_id("nearModeEnabled")));
+  opts.nearModeEnabled = val_bool(val_field(in, val_id("nearModeEn:wabled")));
   opts.seatedModeEnabled = val_bool(val_field(in, val_id("seatedModeEnabled")));
   opts.userTrackingEnabled = val_bool(val_field(in, val_id("userTrackingEnabled")));
   opts.extendedModeEnabled = val_bool(val_field(in, val_id("extendedModeEnabled")));
