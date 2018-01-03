@@ -14,3 +14,7 @@ Screenshots
 *.md~
 *.hx~
 *.hx~~
+*~
+*.swp
+ndll/
+

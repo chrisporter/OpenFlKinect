@@ -95,6 +95,7 @@ static value openflkinect_update_depth_pixels(value ref, value depthArray)
   int* ints = val_array_int(depthArray);
   if ( ! ints )
   {
+    cout << "not ints" << endl;
     return alloc_bool(false);
   }
 

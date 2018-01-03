@@ -11,6 +11,8 @@
 	<source path="Source" />
 	
 	<haxelib name="openfl" />
+	<!--<haxelib name="hxcpp" version="3.2.205" />-->
+	<!--<haxelib name="lime" version="2.6.2" />-->
 	<include name="OpenFLKinect" path="../OpenFLKinect"></include>
 	
 	<assets path="Assets" rename="assets" exclude="nme.svg" />

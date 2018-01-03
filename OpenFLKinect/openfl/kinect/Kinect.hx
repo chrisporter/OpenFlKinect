@@ -1,5 +1,6 @@
 package openfl.kinect;
 
+import openfl.Vector;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
 import openfl.geom.Vector3D;
@@ -35,7 +36,7 @@ class Kinect
 	
 	public var isCapturing(get, null):Bool;
 	
-	private var depthPixels:Array<Int>;
+	private var depthPixels:Array<UInt>;
 	private var bmdDepth:BitmapData;
 	public var bmDepth(default, default):Bitmap;
 		
@@ -61,7 +62,7 @@ class Kinect
 		
 		if ( opts.depthEnabled )
 		{
-			depthPixels = new Array<Int>();
+			depthPixels = new Array<UInt>();
 			depthPixels[ Std.int(deviceOptions.depthSize.x * deviceOptions.depthSize.y)] = 0;
 			bmdDepth = new BitmapData(Std.int(deviceOptions.depthSize.x),
 				Std.int(deviceOptions.depthSize.y), false);
@@ -164,19 +165,21 @@ class Kinect
 		if ( deviceOptions.depthEnabled )
 		{
 			openflkinect_update_depth_pixels(r, depthPixels);
-			bmdDepth.setVector(bmdDepth.rect, depthPixels);
+			var v = Vector.ofArray(depthPixels);
+			//v = depthPixels;
+			bmdDepth.setVector(bmdDepth.rect, v);
 		}
 		
 		if ( deviceOptions.colorEnabled )
 		{
 			openflkinect_update_color_pixels(r, colorPixels);
-			bmdColor.setVector(bmdColor.rect, colorPixels);
+			//bmdColor.setVector(bmdColor.rect, colorPixels);
 		}
 		
 		if ( deviceOptions.irEnabled )
 		{
 			openflkinect_update_ir_pixels(r, irPixels);
-			bmdIr.setVector(bmdIr.rect, irPixels);
+			//bmdIr.setVector(bmdIr.rect, irPixels);
 		}
 		
 		if ( deviceOptions.skeletonTrackingEnabled )

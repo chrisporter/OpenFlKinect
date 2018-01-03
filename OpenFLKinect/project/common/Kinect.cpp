@@ -389,7 +389,6 @@ void Kinect::run()
             hr = mSensor->NuiImageFrameGetDepthImagePixelFrameTexture(mDepthStreamHandle, &imageFrame,
                 &bNearMode, &pTexture);
         }
-
         if ( FAILED( hr ) )
         {
           error( hr );
@@ -432,6 +431,7 @@ void Kinect::run()
             }
             else
             {
+              cout << lockedRect.pBits << endl;
               pixelToDepthBitmap( (uint16_t*)lockedRect.pBits );
             }
           }
@@ -677,6 +677,7 @@ int32_t Kinect::getDeviceCount()
 
 void Kinect::stop()
 {
+  cout << "stop" << endl;
   mCapture = false;
   if ( mThread )
   {

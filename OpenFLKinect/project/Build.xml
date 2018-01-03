@@ -1,9 +1,5 @@
 <xml>
     <include name="${HXCPP}/build-tool/BuildCommon.xml"/>
-    <set name="mobile" value="1" if="iphone"/>
-    <set name="mobile" value="1" if="android"/>
-    <set name="mobile" value="1" if="blackberry"/>
-    <set name="mobile" value="1" if="webos"/>
     <set name="KINECTSDK10_DIR" value="C:\Program Files\Microsoft SDKs\Kinect\v1.8\" />
     <set name="KINECT_TOOLKIT_DIR" value="C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\" />
 	<set name="HXCPP_MSVC" value="C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools" />
@@ -13,7 +9,6 @@
         <compilerflag value ="-I${KINECTSDK10_DIR}lib/x86"/>
         <compilerflag value="-I${HAXEPATH}lib/nme/project/include" />
         <compilerflag value="-I${KINECT_TOOLKIT_DIR}/inc" />
-        <!--<compilerflag value="-I{HAXEPATH}lib/hxcpp/3,0,2/include/hx" />-->
         <file name="common/ExternalInterface.cpp"/>
         <file name="common/Kinect.cpp"/>
     </files>
