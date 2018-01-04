@@ -728,23 +728,23 @@ void Kinect::pixelToDepthBitmap( uint16_t *buffer )
 
 bool Kinect::mapDepthFrameToColorFrame(unsigned short *depthData,  unsigned short* mappedData)
 {
-  int resolution= mDeviceOptions.colorSize.x * mDeviceOptions.colorSize.y;
-  NUI_COLOR_IMAGE_POINT* colorPoints = new NUI_COLOR_IMAGE_POINT[resolution]; //color points
-  NUI_DEPTH_IMAGE_PIXEL* depthPoints = new NUI_DEPTH_IMAGE_PIXEL[resolution]; // depth pixel
+  int colRes = mDeviceOptions.colorSize.x * mDeviceOptions.colorSize.y;
+  int depthRes = mDeviceOptions.depthSize.x * mDeviceOptions.depthSize.y;
+  NUI_COLOR_IMAGE_POINT* colorPoints = new NUI_COLOR_IMAGE_POINT[depthRes]; //color points
+  NUI_DEPTH_IMAGE_PIXEL* depthPoints = new NUI_DEPTH_IMAGE_PIXEL[depthRes]; // depth pixel
 
   /** BE sURE THAT YOU ARE WORKING WITH THE RIGHT HEIGHT AND WIDTH*/  
   unsigned long refWidth = 0;
   unsigned long refHeight = 0;
-  NuiImageResolutionToSize( mDeviceOptions.colorResolution, refWidth, refHeight );
+  NuiImageResolutionToSize( mDeviceOptions.depthResolution, refWidth, refHeight );
   int width  = static_cast<int>( refWidth  ); //get the image width in a right way
   int height = static_cast<int>( refHeight ); //get the image height in a right way
-  cout << width << " * " << height << endl;
   INuiCoordinateMapper* coordMapper;
   mSensor->NuiGetCoordinateMapper(&coordMapper); // get the coord mapper
   //Map your frame;
   HRESULT result = coordMapper->MapDepthFrameToColorFrame( mDeviceOptions.depthResolution,
-       width * height, depthPoints, NUI_IMAGE_TYPE_COLOR,
-      mDeviceOptions.colorResolution, width * height, colorPoints );
+       depthRes, depthPoints, NUI_IMAGE_TYPE_COLOR,
+      mDeviceOptions.depthResolution, depthRes, colorPoints );
   if (FAILED(result))
   {
     cout << mDeviceOptions.depthResolution << " | " << mDeviceOptions.colorResolution << 
@@ -752,12 +752,12 @@ bool Kinect::mapDepthFrameToColorFrame(unsigned short *depthData,  unsigned shor
        width * height << endl;
     return false;
   }
+  cout <<  width << " " <<  height << endl;
   //// apply map in terms of x and y (image coordinates);
   for (int i = 0; i < width * height; i++)
-     if (colorPoints[i].x >0 && colorPoints[i].x < width && colorPoints[i].y>0 &&    colorPoints[i].y < height)
+     if (colorPoints[i].x > 0 && colorPoints[i].x < width && colorPoints[i].y>0 && colorPoints[i].y < height)
           *(mappedData + colorPoints[i].x + colorPoints[i].y*width) = *(depthData + i );
 
-  cout << "true " << endl;
   //// free your memory!!!
   delete colorPoints;
   delete depthPoints;
