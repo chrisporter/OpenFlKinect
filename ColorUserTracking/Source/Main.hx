@@ -22,9 +22,9 @@ class Main extends Sprite
 		d.colorEnabled = true;
 		d.skeletonTrackingEnabled = false;
 		d.colorResolution = ImageResolution.NUI_IMAGE_RESOLUTION_640x480;
-		d.depthResolution = ImageResolution.NUI_IMAGE_RESOLUTION_320x240;
+		d.depthResolution = ImageResolution.NUI_IMAGE_RESOLUTION_640x480;
 		d.userTrackingEnabled = true;
-		//d.removeBackground = true;
+		d.removeBackground = true;
 		d.flipped = false;
 		//d.mapColorToDepth
 		
