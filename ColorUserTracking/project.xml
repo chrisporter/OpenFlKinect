@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 
-	<meta title="Color" package="com.kinect.color" version="1.0.0" company="kinect" />
+	<meta title="ColorUserTracking" package="com.kinect.colorUserTracking" version="1.0.0" company="kinect" />
 	<app main="Main" path="Export" file="Color" />
 
 	<window background="#000000" fps="30" />

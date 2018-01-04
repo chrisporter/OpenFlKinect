@@ -1,0 +1,17 @@
+-lib actuate
+-lib openfl
+-cp Source
+-cp ../OpenFLKinect
+-cp ../KinectGraphics/Source
+-cp Export/windows/cpp/haxe
+-D tools=1.1.6
+-D SHOW_CONSOLE
+-D openfl=1.1
+-D display
+-D windows
+-D desktop
+-D no-compilation
+-main ApplicationMain
+--no-output
+--macro allowPackage("flash")
+--macro keep("Main")

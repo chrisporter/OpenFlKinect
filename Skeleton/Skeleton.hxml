@@ -1,0 +1,16 @@
+-lib openfl
+-cp Source
+-cp C:/HaxeToolkit/haxe/lib/openfl/1,0,6/
+-cp ../OpenFLKinect
+-cp ../OpenFLKinect
+-cp Export/windows/cpp/haxe
+-D tools=1
+-D SHOW_CONSOLE
+-D openfl_ver=1.0.6
+-D openfl
+-D display
+-D windows
+-D desktop
+-main ApplicationMain
+--no-output
+--macro allowPackage("flash")

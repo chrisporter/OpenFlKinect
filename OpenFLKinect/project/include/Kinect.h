@@ -64,6 +64,7 @@ public:
   DeviceOptions& setDeviceOptions(const DeviceOptions& val);
 
   int* depthPixels() const;
+  int* depthPixelsMappedToColor() const;
   int* colorPixels() const;
   int* irPixels() const;
 
@@ -71,6 +72,7 @@ public:
   float skeletonFrameRate();
   float colorFrameRate();
   float irFrameRate();
+  bool mapDepthFrameToColorFrame(unsigned short *depthData,  unsigned short* mappedData);
 
   bool isCapturing();
   int32_t getTilt();
@@ -117,6 +119,7 @@ private:
   Pixel shortToPixel ( uint16_t value );
   unsigned char* mRgbDepth;
   int* mDepthPixels;
+  int* mDepthPixelsMappedToColor;
   int* mColorPixels;
   int* mIrPixels;
   bool mActiveUsers[ NUI_SKELETON_COUNT ];
