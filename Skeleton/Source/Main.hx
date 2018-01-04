@@ -37,7 +37,7 @@ class Main extends Sprite
 		k = new Kinect(d);
 		k.start();
 		tilt = k.tilt;
-		addChild(k.bmColor);
+		//addChild(k.bmColor);
 		bmdSkel = new BitmapData(Std.int(d.colorSize.x), Std.int(d.colorSize.y));
 		bmSkel = new Bitmap(bmdSkel);
 		addChild(bmSkel);
@@ -45,7 +45,6 @@ class Main extends Sprite
 		s = new Shape();
 		addEventListener(Event.ENTER_FRAME, run);
 		stage.addEventListener(KeyboardEvent.KEY_UP, keyUp);
-		//cpp.vm.Profiler.start("log.txt");
 	}
 	
 	private function keyUp(e:KeyboardEvent):Void 
