@@ -1,16 +1,10 @@
-import openfl.display.Bitmap;
-import openfl.display.BitmapData;
-import openfl.display.Shape;
+import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.events.KeyboardEvent;
-import openfl.events.MouseEvent;
-import openfl.geom.Point;
-import cpp.Lib;
-import openfl.display.FPS;
-import openfl.kinect.Kinect;
 import openfl.kinect.DeviceOptions;
 import openfl.kinect.ImageResolution;
+import openfl.kinect.Kinect;
 
 class Main extends Sprite 
 {
@@ -42,6 +36,7 @@ class Main extends Sprite
 		k.bmDepth.scaleX = k.bmDepth.scaleY = 2.0;
 		addChild(k.bmDepth);
 		addChild(new FPS(10, 10 , 0xFFFFFF));
+		
 		addEventListener(Event.ENTER_FRAME, run);
 		stage.addEventListener(KeyboardEvent.KEY_UP, keyUp);
 	}

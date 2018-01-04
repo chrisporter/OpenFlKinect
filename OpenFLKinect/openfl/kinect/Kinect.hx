@@ -166,14 +166,14 @@ class Kinect
 		{
 			openflkinect_update_depth_pixels(r, depthPixels);
 			var v = Vector.ofArray(depthPixels);
-			//v = depthPixels;
 			bmdDepth.setVector(bmdDepth.rect, v);
 		}
 		
 		if ( deviceOptions.colorEnabled )
 		{
 			openflkinect_update_color_pixels(r, colorPixels);
-			//bmdColor.setVector(bmdColor.rect, colorPixels);
+			var v = Vector.ofArray(colorPixels);
+			bmdColor.setVector(bmdColor.rect, v);
 		}
 		
 		if ( deviceOptions.irEnabled )

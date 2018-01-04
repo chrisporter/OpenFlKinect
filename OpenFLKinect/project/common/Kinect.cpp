@@ -99,6 +99,7 @@ bool Kinect::isCapturing()
 
 void Kinect::start()
 {
+  
   if ( mCapture == true )
   {
     return;
@@ -200,7 +201,6 @@ bool Kinect::initStreams()
     }
   }
 
-
   if ( mDeviceOptions.colorEnabled | mDeviceOptions.irEnabled )
   {
     flags |= NUI_INITIALIZE_FLAG_USES_COLOR;
@@ -240,10 +240,10 @@ bool Kinect::initStreams()
   }
 
   // Initialize depth image
-  if ( mDeviceOptions.depthResolution
+  if (  mDeviceOptions.depthEnabled && mDeviceOptions.depthResolution
       != NUI_IMAGE_RESOLUTION::NUI_IMAGE_RESOLUTION_INVALID )
   {
-    if ( mDeviceOptions.depthEnabled && !openDepthStream() )
+    if ( !openDepthStream() )
     {
       return false;
     }
@@ -389,6 +389,7 @@ void Kinect::run()
             hr = mSensor->NuiImageFrameGetDepthImagePixelFrameTexture(mDepthStreamHandle, &imageFrame,
                 &bNearMode, &pTexture);
         }
+
         if ( FAILED( hr ) )
         {
           error( hr );
@@ -431,7 +432,6 @@ void Kinect::run()
             }
             else
             {
-              cout << lockedRect.pBits << endl;
               pixelToDepthBitmap( (uint16_t*)lockedRect.pBits );
             }
           }
@@ -677,7 +677,6 @@ int32_t Kinect::getDeviceCount()
 
 void Kinect::stop()
 {
-  cout << "stop" << endl;
   mCapture = false;
   if ( mThread )
   {
@@ -1145,3 +1144,4 @@ int Kinect::nuiStatus()
 {
   return mNuiStatus;
 }
+

@@ -1,15 +1,10 @@
-import openfl.display.Bitmap;
-import openfl.display.BitmapData;
-import openfl.display.Shape;
+import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.events.KeyboardEvent;
-import openfl.events.MouseEvent;
-import openfl.geom.Point;
-import openfl.kinect.Kinect;
 import openfl.kinect.DeviceOptions;
 import openfl.kinect.ImageResolution;
-import cpp.Lib;
+import openfl.kinect.Kinect;
 
 class Main extends Sprite 
 {
@@ -34,6 +29,7 @@ class Main extends Sprite
 		tilt = k.tilt;
 		
 		addChild(k.bmColor);
+		addChild(new FPS());
 
 		addEventListener(Event.ENTER_FRAME, run);
 		stage.addEventListener(KeyboardEvent.KEY_UP, keyUp);
