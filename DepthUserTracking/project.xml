@@ -11,7 +11,7 @@
 	<source path="Source" />
 
 	<haxelib name="openfl" />
-	<source path="../OpenFLKinect" />
+	<include name="OpenFLKinect" path="../OpenFLKinect"></include>
 
 	<assets path="Assets" rename="assets" exclude="nme.svg" />
 	<icon path="Assets/nme.svg" />
