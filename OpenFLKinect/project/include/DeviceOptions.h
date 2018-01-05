@@ -46,6 +46,7 @@ struct DeviceOptions
     bool userTrackingEnabled;
     bool extendedModeEnabled;
     bool mapColorToDepth;
+    bool mapDepthToColor;
 
     bool binaryMode;
     bool userColor;

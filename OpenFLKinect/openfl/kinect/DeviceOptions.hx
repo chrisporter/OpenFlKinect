@@ -45,6 +45,7 @@ class DeviceOptions
 	public var userTrackingEnabled(default, default):Bool;
 	public var extendedModeEnabled(default, default):Bool;
 	public var mapColorToDepth(default, default):Bool;
+	public var mapDepthToColor(default, default):Bool;
 	
 	public var binaryMode(default, default):Bool;
 	public var userColor(default, default):Bool;
@@ -75,14 +76,9 @@ class DeviceOptions
 		userColor = false;
 		inverted = false;
 		removeBackground = false;
-		transform = SkeletonTransform.TRANSFORM_DEFAULT;
-		
+		mapDepthToColor = false;
+		transform = SkeletonTransform.TRANSFORM_DEFAULT;	
 	}
-	
-	//public function init()
-	//{
-		//r = openflkinect_init_device_options(this);
-	//}
 	
 	public function enableSkeletonTracking(enable:Bool, seated:Bool):DeviceOptions
 	{

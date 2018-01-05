@@ -57,6 +57,7 @@ static value openflkinect_init(value in)
   opts.userTrackingEnabled = val_bool(val_field(in, val_id("userTrackingEnabled")));
   opts.extendedModeEnabled = val_bool(val_field(in, val_id("extendedModeEnabled")));
   opts.mapColorToDepth = val_bool(val_field(in, val_id("mapColorToDepth")));
+  opts.mapDepthToColor = val_bool(val_field(in, val_id("mapDepthToColor")));
 
   opts.binaryMode = val_bool(val_field(in, val_id("binaryMode")));
   opts.userColor = val_bool(val_field(in, val_id("userColor")));

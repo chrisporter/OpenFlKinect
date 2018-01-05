@@ -72,6 +72,13 @@ void Kinect::init()
   mNuiStatus = E_NUI_DEVICE_NOT_READY;
   mUserCount = 0;
   mNuiIStream = 0;
+
+  if ( mDeviceOptions.mapDepthToColor )
+  {
+    cout << "mappedDepth" << mDeviceOptions.depthSize.x * mDeviceOptions.depthSize.y << endl;
+    mappedDepth = (uint16_t*)calloc(mDeviceOptions.depthSize.x * mDeviceOptions.depthSize.y, sizeof(uint16_t));
+  }
+
   deactivateUsers();
   if ( mDeviceOptions.deviceIndex >= 0 )
   {
@@ -99,7 +106,6 @@ bool Kinect::isCapturing()
 
 void Kinect::start()
 {
-  
   if ( mCapture == true )
   {
     return;
@@ -430,11 +436,14 @@ void Kinect::run()
             {
               pixelToDepthBitmap( (NUI_DEPTH_IMAGE_PIXEL *) lockedRect.pBits );
             }
-            else
+            else if ( mDeviceOptions.mapDepthToColor )
             {
-              uint16_t * mappedDepth = new uint16_t[mDeviceOptions.depthSize.x * mDeviceOptions.depthSize.y];
               mapDepthFrameToColorFrame((uint16_t*)lockedRect.pBits, mappedDepth);
               pixelToDepthBitmap( mappedDepth );
+            }
+            else
+            {
+              pixelToDepthBitmap( (uint16_t*)lockedRect.pBits );
             }
           }
 
@@ -745,6 +754,7 @@ bool Kinect::mapDepthFrameToColorFrame(unsigned short *depthData,  unsigned shor
   HRESULT result = coordMapper->MapDepthFrameToColorFrame( mDeviceOptions.depthResolution,
        depthRes, depthPoints, NUI_IMAGE_TYPE_COLOR,
       mDeviceOptions.depthResolution, depthRes, colorPoints );
+  cout << result << endl;
   if (FAILED(result))
   {
     cout << mDeviceOptions.depthResolution << " | " << mDeviceOptions.colorResolution << 
@@ -752,11 +762,14 @@ bool Kinect::mapDepthFrameToColorFrame(unsigned short *depthData,  unsigned shor
        width * height << endl;
     return false;
   }
-  cout <<  width << " " <<  height << endl;
   //// apply map in terms of x and y (image coordinates);
   for (int i = 0; i < width * height; i++)
-     if (colorPoints[i].x > 0 && colorPoints[i].x < width && colorPoints[i].y>0 && colorPoints[i].y < height)
-          *(mappedData + colorPoints[i].x + colorPoints[i].y*width) = *(depthData + i );
+  {
+    if (colorPoints[i].x > 0 && colorPoints[i].x < width && colorPoints[i].y > 0 && colorPoints[i].y < height)
+    {
+        *(mappedData + colorPoints[i].x + colorPoints[i].y*width) = *(depthData + i );
+    }
+  }
 
   //// free your memory!!!
   delete colorPoints;

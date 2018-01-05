@@ -67,6 +67,7 @@ public:
   int* depthPixelsMappedToColor() const;
   int* colorPixels() const;
   int* irPixels() const;
+  uint16_t * mappedDepth;
 
   float depthFrameRate();
   float skeletonFrameRate();

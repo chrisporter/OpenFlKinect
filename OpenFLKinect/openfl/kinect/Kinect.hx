@@ -179,7 +179,8 @@ class Kinect
 		if ( deviceOptions.irEnabled )
 		{
 			openflkinect_update_ir_pixels(r, irPixels);
-			//bmdIr.setVector(bmdIr.rect, irPixels);
+			var v = Vector.ofArray(irPixels);
+			bmdIr.setVector(bmdIr.rect, v);
 		}
 		
 		if ( deviceOptions.skeletonTrackingEnabled )
